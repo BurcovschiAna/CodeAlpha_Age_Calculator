@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <p>Enter your birthday</p>
+        <div class="input-container">
+            <div>
+                <input type="text" id="date" required>
+                <label for="date">Date</label>
+                <span class="error hidden" id="date-error">*Invalid date</span>  
+            </div>
+            <div>
+                <input type="text" id="month" required>
+                <label for="month">Month</label>
+            <span class="error hidden" id="month-error">*Invalid date</span>
+            </div>
+            <div>
+                <input type="text" id="year" required>
+                <label for="year">Year</label>
+                <span class="error hidden" id="year-error">*Invalid date</span>
+            </div>         
+        </div>
+       
+        <div class="submit-btn" id="btn">Calculate</div> 
+        <div class="error hidden" id="error">*Invalid Date</div> 
+        <p>Your age:</p>
+        <div class="result-container">
+            <div>
+                <span>Years</span>
+                <div id="years" class="result">-</div>
+            </div>
+            <div>
+                <span>Months</span>
+                <div id="months" class="result">-</div>
+            </div>
+            <div>
+                <span>Days</span>
+                <div id="days" class="result">-</div>
+            </div>
+            
+            
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
