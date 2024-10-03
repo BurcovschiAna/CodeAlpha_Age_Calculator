@@ -10,7 +10,7 @@
 }
 body{
     height: 100vh;
-    background: linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #FFE1FF 68%);
+    background: linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%);
     animation: background 30s ease infinite;
     background-size: 400% 400%;
 
@@ -27,7 +27,11 @@ body{
     }
 }
 .wrapper{
-    margin: 100px auto ;
+    /* margin: 100px auto; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 500px;
     background-color: white;
     border-radius: 15px;
@@ -68,17 +72,25 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -90%);
+    transform: translate(-50%, -60%);
     font-size: 20px;
 }
 .input-container input:focus ~ label, .input-container input:valid ~ label{
-    top: -5px;
+    top: -10px;
     font-size: 15px;
+}
+.error-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
 }
 .error{
     color: red;
     font-size: 15px;
     text-align: center;
+    width: 150px;
 }
 .submit-btn{
     width: 100px;

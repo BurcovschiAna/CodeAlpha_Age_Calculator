@@ -12,23 +12,24 @@
         <div class="input-container">
             <div>
                 <input type="text" id="date" required>
-                <label for="date">Date</label>
-                <span class="error hidden" id="date-error">*Invalid date</span>  
+                <label for="date">Date</label>  
             </div>
             <div>
                 <input type="text" id="month" required>
                 <label for="month">Month</label>
-            <span class="error hidden" id="month-error">*Invalid date</span>
             </div>
             <div>
                 <input type="text" id="year" required>
                 <label for="year">Year</label>
-                <span class="error hidden" id="year-error">*Invalid date</span>
             </div>         
         </div>
+        <div class="error-container">
+            <div class="error hidden" id="date-error">*Invalid date</div>
+            <div class="error hidden" id="month-error">*Invalid date</div>
+            <div class="error hidden" id="year-error">*Invalid date</div>
+        </div>
        
-        <div class="submit-btn" id="btn">Calculate</div> 
-        <div class="error hidden" id="error">*Invalid Date</div> 
+        <div class="submit-btn" id="btn">Calculate</div>  
         <p>Your age:</p>
         <div class="result-container">
             <div>
