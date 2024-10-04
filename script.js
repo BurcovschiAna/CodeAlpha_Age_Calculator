@@ -21,86 +21,58 @@ function ageCalculator() {
     let birthDay = date.value;
     let birthMonth = month.value;
     let birthYear = year.value;
-
-    
-    
-    console.log(isValidDate(birthYear, birthMonth, birthDay));
-    console.log(error.call(month, 1, 12, monthError));
-    console.log(error.call(year, 1900, currentYear, yearError)); 
-    console.log(error.call(date, 1, 31, dateError));
-    
-    
-    if(isValidDate(birthYear, birthMonth, birthDay) || error.call(date, 1, 31, dateError) || error.call(month, 1, 12, monthError) || error.call(year, 1900, currentYear, yearError) ){
+    if(isValidDate(birthYear, birthMonth, birthDay) || 
+    error.call(date, 1, 31, dateError) || 
+    error.call(month, 1, 12, monthError) || 
+    error.call(year, 1900, currentYear, yearError) ||
+    new Date(birthYear, birthMonth, birthDay).getTime() > new Date(currentYear, currentMonth, currentDay).getTime()){
+        error.call(month, 1, 12, monthError);
+        error.call(year, 1900, currentYear, yearError); 
+        error.call(date, 1, 31, dateError);
         calculatedYears.innerHTML = "-";
         calculatedMonths.innerHTML = "-";
         calculatedDays.innerHTML = "-";        
         if(isValidDate(birthYear, birthMonth, birthDay) || error.call(date, 1, 31, dateError)){
             dateError.classList.remove("hidden"); 
             return;
-        } else{
+         } else if(new Date(birthYear, birthMonth, birthDay).getTime() > new Date(currentYear, currentMonth, currentDay).getTime()){
+            dateError.classList.remove("hidden");
+            dateError.innerHTML = "*The date is in the future";
+            return
+        }
+        else{
             dateError.classList.add("hidden");
         }
         return;
     } else{
+        if(birthDay > currentDay){
+            currentDay +=  new Date(currentYear, currentMonth, 0).getDate();
+            currentMonth--
+        }
+        if(birthMonth > currentMonth) {
+            currentYear--;
+            currentMonth += 12;        
+        } 
         calculatedYears.innerHTML = currentYear - birthYear;
         calculatedMonths.innerHTML = currentMonth - birthMonth;
         calculatedDays.innerHTML = currentDay - birthDay;       
-    }
-    // if(isValidDate(birthYear, birthMonth, birthDay)){
-    //     dateError.classList.remove("hidden");        
-    //     calculatedYears.innerHTML = "-";
-    //     calculatedMonths.innerHTML = "-";
-    //     calculatedDays.innerHTML = "-";
-        
-    // } else {
-    //     dateError.classList.add("hidden");
-    // }
-    // if(error.call(year, 1900, currentYear, yearError) || error.call(month, 1, 12, monthError)){
-    //     calculatedYears.innerHTML = "-";
-    //     calculatedMonths.innerHTML = "-";
-    //     calculatedDays.innerHTML = "-";
-    // } 
-    
-    // if(!isValidDate(birthYear, birthMonth, birthDay) && !error.call(year, 1900, currentYear, yearError) && !error.call(month, 1, 12, monthError)){
-    //     calculatedYears.innerHTML = currentYear - birthYear;
-    //     calculatedMonths.innerHTML = currentMonth - birthMonth;
-    //     calculatedDays.innerHTML = currentDay - birthDay;
-    // }
-    if(birthDay > currentDay){
-        currentDay +=  new Date(currentYear, currentMonth, 0).getDate();
-        currentMonth--
-    }
-    if(birthMonth > currentMonth) {
-        currentYear--;
-        currentMonth += 12;        
-    }  
+    } 
 }
-
 
 
 function error(minData, maxData, errorData){
     if(this.value >= minData && this.value <= maxData){
-        errorData.classList.add("hidden");
-        console.log("no error");
-        
+        errorData.classList.add("hidden");        
         return false;
     } else {
         errorData.classList.remove("hidden"); 
-        errorData.innerHTML = `*value must be between ${minData} and ${maxData}` ;
-        console.log("error");
-        
+        errorData.innerHTML = `*Value must be between ${minData} and ${maxData}` ;     
         return true;     
     }
 }
-
 function isValidDate(y, m, d) {
     let validDate = new Date(y, m, 0).getDate();
-    let dateOfBirth = d;     
-    console.log(dateOfBirth);
-    console.log(validDate + 1);
-    console.log(validDate + 1 <= dateOfBirth);
-    
-    
+    let dateOfBirth = d;         
     return validDate + 1 <= dateOfBirth;
 }
 

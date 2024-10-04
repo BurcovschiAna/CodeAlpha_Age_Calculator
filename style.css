@@ -42,19 +42,23 @@ body{
     margin: 0 0 25px;
     text-align: center;
 }
-.input-container{
+.input-error-container{
     margin: 0 auto;
     width: 90%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.input-container div{
+.input-error-container > div{
     display: flex;
     flex-direction: column;
+ 
+}
+.input-container {
     position: relative;
 }
 .input-container input{
+    margin: 0 auto;
     width: 100px;
     border: 2px solid #7E60BF;
     border-radius: 20px;
@@ -79,18 +83,20 @@ body{
     top: -10px;
     font-size: 15px;
 }
-.error-container{
+/* .error-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 95%;
     margin: 0 auto;
-}
+} */
 .error{
     color: red;
     font-size: 15px;
     text-align: center;
-    width: 150px;
+    width: 100px;
 }
 .submit-btn{
     width: 100px;
@@ -124,4 +130,10 @@ body{
     border: 2px solid #7E60BF;
     border-radius: 50%;
     margin-top: 10px;
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 90%;
+        margin: 0 20px;
+    }
 }

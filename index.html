@@ -9,25 +9,34 @@
 <body>
     <div class="wrapper">
         <p>Enter your birthday</p>
-        <div class="input-container">
+        <div class="input-error-container">
             <div>
-                <input type="text" id="date" required>
-                <label for="date">Date</label>  
+                <div class="input-container">
+                    <input type="text" id="date" required>
+                    <label for="date">Date</label>                      
+                </div>
+                <div class="error hidden" id="date-error">*Invalid date</div>
             </div>
             <div>
-                <input type="text" id="month" required>
-                <label for="month">Month</label>
+                <div class="input-container">
+                    <input type="text" id="month" required>
+                    <label for="month">Month</label>                    
+                </div>
+                <div class="error hidden" id="month-error">*Invalid date</div>
             </div>
             <div>
-                <input type="text" id="year" required>
-                <label for="year">Year</label>
+                <div class="input-container">
+                    <input type="text" id="year" required>
+                    <label for="year">Year</label>                    
+                </div>
+                <div class="error hidden" id="year-error">*Invalid date</div>
             </div>         
         </div>
-        <div class="error-container">
+        <!-- <div class="error-container">
             <div class="error hidden" id="date-error">*Invalid date</div>
             <div class="error hidden" id="month-error">*Invalid date</div>
             <div class="error hidden" id="year-error">*Invalid date</div>
-        </div>
+        </div> -->
        
         <div class="submit-btn" id="btn">Calculate</div>  
         <p>Your age:</p>
