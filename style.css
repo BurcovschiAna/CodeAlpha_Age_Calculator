@@ -13,6 +13,8 @@ body{
     background: linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%);
     animation: background 30s ease infinite;
     background-size: 400% 400%;
+    margin: 0 20px;
+
 
 }
 @keyframes background {
@@ -27,7 +29,7 @@ body{
     }
 }
 .wrapper{
-    /* margin: 100px auto; */
+    margin: 10px 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -77,21 +79,13 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
+    transition: all 0.5s ease-in-out;
     font-size: 20px;
 }
 .input-container input:focus ~ label, .input-container input:valid ~ label{
     top: -10px;
     font-size: 15px;
 }
-/* .error-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 95%;
-    margin: 0 auto;
-} */
 .error{
     color: red;
     font-size: 15px;
@@ -103,11 +97,18 @@ body{
     padding: 10px 5px;
     background-color: #7E60BF;
     border-radius: 20px;
+    border: 2px solid #7E60BF;
     text-align: center;
     color: white;
     margin: 30px auto;
     font-size: 20px;
     cursor: default;
+    transition: all 0.5s ease-in-out;
+}
+.submit-btn:hover{
+    background-color: #ffe1ff72;
+    color: #7E60BF;
+    border: 2px solid #7E60BF;
 }
 .result-container{
     margin: 0 auto;
@@ -133,7 +134,63 @@ body{
 }
 @media screen and (max-width: 600px) {
     .wrapper{
-        width: 90%;
-        margin: 0 20px;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 500px){
+    .input-error-container{
+        flex-direction: column;
+        width: max-content;
+    }
+    .input-container input, .error{
+        width: 200px;        
+    }
+    .input-container input{
+        margin: 10px 0 20px;
+    }
+    .error{
+        margin: 0 0 10px;
+    }
+    .input-container input:focus ~ label, .input-container input:valid ~ label{
+        top: -3px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .result-container{
+        width: 80%;
+    }
+    .input-container label{
+        transform: translate(-50%, -80%);
+    }
+    .input-container input:focus ~ label, .input-container input:valid ~ label{
+        top: 2px;
+        font-size: 14px;
+    }
+    .input-container input{
+        padding: 5px;
+    }
+    .result, .submit-btn, .input-container input, .input-container label{
+        font-size: 16px;
+    }
+    .wrapper p{
+        font-size: 18px;
+        margin: 0 0 15px;
+    }
+    .submit-btn{
+        padding: 8px 5px;
+        margin: 10px auto;
+    }
+    .result{
+        width: 40px;
+        height: 40px;
+    }
+}
+@media screen and (max-width: 300px) {
+    .input-container input{
+        width: 100px;
+        margin: 10px auto 20px;
+    }
+    .error{
+        width: 100px;
     }
 }

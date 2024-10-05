@@ -34,6 +34,7 @@ function ageCalculator() {
         calculatedDays.innerHTML = "-";        
         if(isValidDate(birthYear, birthMonth, birthDay) || error.call(date, 1, 31, dateError)){
             dateError.classList.remove("hidden"); 
+            dateError.innerHTML = `This month has only ${new Date(birthYear, birthMonth, 0).getDate()} days`;
             return;
          } else if(new Date(birthYear, birthMonth, birthDay).getTime() > new Date(currentYear, currentMonth, currentDay).getTime()){
             dateError.classList.remove("hidden");
