@@ -1,22 +1,66 @@
+/* Importing Google fonts 'Fredoka' and 'Roboto' */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* Global styling applied to all elements */
 *{
     margin: 0;
     padding: 0;
-    font-family: "Fredoka", sans-serif;
+    font-family: "Fredoka", sans-serif; /* Setting default font family */
     color: #7E60BF;
 }
+/* Class to hide elements */
 .hidden{
     display: none;
 }
+/* Body styling */
 body{
     height: 100vh;
+    background: -webkit-linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%); /* Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%); /* Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%); /* Firefox 3.6 to 15 */
     background: linear-gradient(315deg, #7E60BF 3%, #E4B1F0 38%, #87A2FF 68%);
-    animation: background 30s ease infinite;
-    background-size: 400% 400%;
-    margin: 0 20px;
-
-
+    -webkit-animation: background 30s ease infinite; /* Chrome, Safari 5.1+, and Opera */
+    -moz-animation: background 30s ease infinite; /* Firefox */
+    -o-animation: background 30s ease infinite; /* Opera */
+    animation: background 30s ease infinite; /* Animate background gradient */
+    background-size: 400% 400%; /* Background size for smooth animation */
 }
+/* Keyframe animation for background movement */
+@-webkit-keyframes background {
+    0% {
+        background-position: 0% 0%; 
+    }
+    50% {
+        background-position: 100% 100%; 
+    }
+    100% {
+        background-position: 0% 0%; 
+    }
+}
+
+@-moz-keyframes background {
+    0% {
+        background-position: 0% 0%; 
+    }
+    50% {
+        background-position: 100% 100%; 
+    }
+    100% {
+        background-position: 0% 0%; 
+    }
+}
+
+@-o-keyframes background {
+    0% {
+        background-position: 0% 0%; 
+    }
+    50% {
+        background-position: 100% 100%; 
+    }
+    100% {
+        background-position: 0% 0%; 
+    }
+}
+
 @keyframes background {
     0% {
         background-position: 0% 0%;
@@ -28,37 +72,48 @@ body{
         background-position: 0% 0%;
     }
 }
+/* Styling the main container */
 .wrapper{
     margin: 10px 0;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); /* Safari, Chrome */
+    -moz-transform: translate(-50%, -50%); /* Firefox */
+    -ms-transform: translate(-50%, -50%); /* Internet Explorer */
+    -o-transform: translate(-50%, -50%); /* Opera */
+    transform: translate(-50%, -50%);  /* Shift to the center */
     width: 500px;
     background-color: white;
     border-radius: 15px;
     padding: 30px  20px;
 }
+/* Styling the paragraphs inside the wrapper */
 .wrapper p{
     font-size: 25px;
     margin: 0 0 25px;
     text-align: center;
 }
+
+/* Container for inputs and error messages */
 .input-error-container{
     margin: 0 auto;
     width: 90%;
+    display: -webkit-box; /* WebKit-based browsers */
+    display: -moz-box; /* Mozilla-based browsers */
+    display: -ms-flexbox; /* IE 10 */
+    display: -webkit-flex; /* Older Safari */
     display: flex;
+    -webkit-flex-direction: row; /* Safari 6.1+ */
+    -moz-flex-direction: row; /* Firefox 20+ */
     flex-direction: row;
     justify-content: space-between;
 }
-.input-error-container > div{
-    display: flex;
-    flex-direction: column;
- 
-}
+/* For absolute positioning of labels */
 .input-container {
     position: relative;
 }
+/* Input field styling */
 .input-container input{
     margin: 0 auto;
     width: 100px;
@@ -72,26 +127,39 @@ body{
 }
 .input-container input:focus{
     background-color: #ffe1ff72;
-    outline: 0;
+    outline: 0; /* Remove default outline */
 }
+
+/* Input label styling */
 .input-container label{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%);
+    -webkit-transform: translate(-50%, -60%); /* Safari, Chrome */
+    -moz-transform: translate(-50%, -60%); /* Firefox */
+    -ms-transform: translate(-50%, -60%); /* Internet Explorer */
+    -o-transform: translate(-50%, -60%); /* Opera */
+    transform: translate(-50%, -60%);  /* Shift to the center */
+    -webkit-transition: all 0.5s ease-in-out; /* Chrome, Safari */
+    -moz-transition: all 0.5s ease-in-out; /* Firefox */
+    -o-transition: all 0.5s ease-in-out; /* Opera */
     transition: all 0.5s ease-in-out;
     font-size: 20px;
 }
+/* When input is focused or valid, move the label */
 .input-container input:focus ~ label, .input-container input:valid ~ label{
     top: -10px;
     font-size: 15px;
 }
+
+/* Error message styling */
 .error{
     color: red;
     font-size: 15px;
     text-align: center;
     width: 100px;
 }
+/* Styling for submit button */
 .submit-btn{
     width: 100px;
     padding: 10px 5px;
@@ -102,9 +170,13 @@ body{
     color: white;
     margin: 30px auto;
     font-size: 20px;
-    cursor: default;
-    transition: all 0.5s ease-in-out;
+    cursor: default; /* Pointer cursor */
+    -webkit-transition: all 0.5s ease-in-out; /* Chrome, Safari */
+    -moz-transition: all 0.5s ease-in-out; /* Firefox */
+    -o-transition: all 0.5s ease-in-out; /* Opera */
+    transition: all 0.5s ease-in-out; /* Smooth hover transition */
 }
+/* Hover effect for submit button */
 .submit-btn:hover{
     background-color: #ffe1ff72;
     color: #7E60BF;
@@ -113,15 +185,27 @@ body{
 .result-container{
     margin: 0 auto;
     width: 50%;
+    display: -webkit-box; /* WebKit-based browsers */
+    display: -moz-box; /* Mozilla-based browsers */
+    display: -ms-flexbox; /* IE 10 */
+    display: -webkit-flex; /* Older Safari */
     display: flex;
+    -webkit-flex-direction: row; /* Safari 6.1+ */
+    -moz-flex-direction: row; /* Firefox 20+ */
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
 }
+/* Styling for result labels (years, months, days) */
 .result-container span{
     font-size: 15px;
 }
+/* Styling for the result (calculated values) */
 .result{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,65 +216,73 @@ body{
     border-radius: 50%;
     margin-top: 10px;
 }
+/* Responsive design for screen widths less than 600px */
 @media screen and (max-width: 600px) {
     .wrapper{
-        width: 80%;
+        width: 80%; /* Increase width for smaller screens */
     }
 }
+/* Further adjustments for screens less than 500px */
 @media screen and (max-width: 500px){
     .input-error-container{
-        flex-direction: column;
-        width: max-content;
+        -webkit-flex-direction: column; /* Safari 6.1+ */
+        -moz-flex-direction: column; /* Firefox 20+ */
+        flex-direction: column; /* Stack inputs vertically */
+        width: max-content; /* Width adjusts to content */
     }
     .input-container input, .error{
         width: 200px;        
     }
     .input-container input{
-        margin: 10px 0 20px;
+        margin: 10px 0 20px;  /* Adjust margin for spacing */
     }
     .error{
-        margin: 0 0 10px;
+        margin: 0 0 10px; /* Adjust margin for spacing */
     }
     .input-container input:focus ~ label, .input-container input:valid ~ label{
-        top: -3px;
+        top: -3px; /* Adjust label position */
     }
 }
+/* Adjustments for screens smaller than 400px */
 @media screen and (max-width: 400px) {
     .result-container{
         width: 80%;
     }
     .input-container label{
-        transform: translate(-50%, -80%);
+        -webkit-transform: translate(-50%, -80%); /* Safari, Chrome */
+        -moz-transform: translate(-50%, -80%); /* Firefox */
+        transform: translate(-50%, -80%); /* Adjust label */
     }
     .input-container input:focus ~ label, .input-container input:valid ~ label{
-        top: 2px;
-        font-size: 14px;
+        top: 2px; /* Adjust label position */
+        font-size: 14px; /* Decrease font size */
     }
     .input-container input{
-        padding: 5px;
+        padding: 5px; /* Decrease padding */
     }
     .result, .submit-btn, .input-container input, .input-container label{
-        font-size: 16px;
+        font-size: 16px; /* Decrease font size */
     }
     .wrapper p{
-        font-size: 18px;
-        margin: 0 0 15px;
+        font-size: 18px; /* Decrease paragraphs font size */
+        margin: 0 0 15px;  /* Adjust margin */
     }
     .submit-btn{
-        padding: 8px 5px;
+        padding: 8px 5px; /* Adjust padding */
         margin: 10px auto;
     }
     .result{
         width: 40px;
-        height: 40px;
+        height: 40px; /* Decrease size of result circles */
     }
 }
+/* Adjustments for screens smaller than 300px */
 @media screen and (max-width: 300px) {
     .input-container input{
-        width: 100px;
+        width: 100px; /* Smaller input width */
         margin: 10px auto 20px;
     }
     .error{
-        width: 100px;
+        width: 100px; /* Smaller error message box */
     }
 }
