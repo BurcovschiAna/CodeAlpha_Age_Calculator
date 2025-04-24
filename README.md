@@ -108,3 +108,5 @@
     <li>The calculator will display your age in years, months, and days.</li>
     <li>If any errors occur (e.g., entering a future date or invalid day for the month), error messages will be shown to guide you.</li>
 </ol>
+    <h2>Contact</h2>
+    <p>For any inquiries or feedback, feel free to reach out to me at <a href="https://www.linkedin.com/in/ana-burcovschi-2a0b8b271/">LinkedIn</a>.</p>
